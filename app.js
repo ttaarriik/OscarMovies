@@ -26,7 +26,8 @@ app.get("/search", (req, res) => {
 	res.render("movieSearch");
 })
 
-app.get("/search/:year", async (req, res) => {
+// REST endpoint that delivers a collection resource in JSON
+app.get("/movies/categories/:categoryName/:year", async (req, res) => {
 	var result = [];
 	try {
 		var response = await axios("https://project-tareq.run-us-west2.goorm.io/json");
@@ -36,14 +37,82 @@ app.get("/search/:year", async (req, res) => {
 	}
 	
 	for(let movie of response.data){
-		if(movie.year == req.params.year && movie.winner === true){
+		
+		let category = movie.category.split(" ").join("").toLowerCase()
+		if(movie.year == req.params.year && category == req.params.categoryName){
 			result.push(movie);
 		}
 	}
-	res.send(result);
+	
+	if(result.length > 0){
+		res.send(result);
+	}else{
+		res.send("No results found, please try again");
+	}
+	
+});
 
-})
+// REST endpoint that delivers a singleton resource in JSON. 
+app.get("/movies/categories/:categoryName/:year/type/winner", async (req, res) => {
+		var result = [];
+	try {
+		var response = await axios("https://project-tareq.run-us-west2.goorm.io/json");
+		
+	} catch(err){
+		console.log(err);
+	}
+	
+	for(let movie of response.data){
+		
+		let category = movie.category.split(" ").join("").toLowerCase()
+		if(movie.year == req.params.year 
+		   && category == req.params.categoryName
+		   && movie.winner === true){
+			
+			result.push(movie);
+		}
+	}
+	
+	if(result.length > 0){
+		res.send(result);
+	}else{
+		res.send("No results found, please try again");
+	}
+	
+});
 
+// REST endpoint that allows search of 1 Oscar category and returns results containing the nominees in JSON.
+app.get("/movies/search", async (req, res) => {
+	var result = [];
+	try {
+		var response = await axios("https://project-tareq.run-us-west2.goorm.io/json");
+		
+	} catch(err){
+		console.log(err);
+	}
+	
+	for(let movie of response.data){
+		
+		let category = movie.category.split(" ").join("").toLowerCase()
+		if(movie.year == req.query.year && category == req.query.category){
+			result.push(movie);
+		}
+	}
+	
+	if(result.length > 0){
+		res.send(result);
+	}else{
+		res.send("No results found, please try again");
+	}
+	
+});
+
+
+
+
+
+
+//API with the movies in JSON
 app.get("/json", (req, res) => {
 	res.send(movies);
 })
