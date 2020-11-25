@@ -13,3 +13,6 @@ This respective End point returns a single result after the parameters are defin
 
 ### 3. Category Resource Endpoint
 This respective End point returns a collection result as well after the category is specified by the user as well as the year. The user is required to specify the category needed to be searched as well as the year for the search. The result will show all the nominees for that specific category that were nominated for that year.
+
+
+## Contributers:
