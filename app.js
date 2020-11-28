@@ -3,10 +3,7 @@ const express 	 = require("express"),
 	  app 	  	 = express(),
 	  bodyParser = require("body-parser"),
 	  movies	 = require("./movies.json"),
-	  axios 	 = require("axios");
-   
- 
-   
+	  axios 	 = require("axios"); 
 
 
 //CONFIGURATION
@@ -18,12 +15,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 //ROUTES
 
-app.get("/", (req, res) => {
-	res.render("main");
-})
-
 app.get("/search", (req, res) => {
-	res.render("movieSearch");
+	res.render("main");
 })
 
 // REST endpoint that delivers a collection resource in JSON
@@ -94,7 +87,7 @@ app.get("/movies/search", async (req, res) => {
 	for(let movie of response.data){
 		
 		let category = movie.category.split(" ").join("").toLowerCase()
-		if(movie.year == req.query.year && category == req.query.category){
+		if(movie.year == req.query.year && category == req.query.category.toLowerCase()){
 			result.push(movie);
 		}
 	}
@@ -102,6 +95,7 @@ app.get("/movies/search", async (req, res) => {
 	if(result.length > 0){
 		res.send(result);
 	}else{
+		console.log(result);
 		res.send("No results found, please try again");
 	}
 	

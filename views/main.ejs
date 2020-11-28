@@ -1,9 +1,20 @@
 <%- include("partials/header") %>
+<%- include("partials/navBar") %>
 
-<h1>
-	Welcome to Oscar Movies
-</h1>
-
+<body style='background-image: url(https://www.colleges-fenway.org/wp-content/uploads/2020/08/theater-image.png); background-repeat: no-repeat; background-attachment: fill; background-size: cover; background-position: center;'>
+	<section class="hero is-primary is-bold" style="color: white; margin: auto; width: 70%; border: 3px white; padding: 10px; text-align: center; height: 50%; top: 120px; position: relative;">
+  		<div class="dropdown">
+    		<button class="btn btn-block" type="button" data-toggle="dropdown">Award Category
+    		<span class="caret"></span></button>
+   			<ul class="dropdown-menu btn-block">
+     			<li><a href="#">Normal</a></li>
+    			<li class="disabled"><a href="#">Disabled</a></li>
+  				<li class="active"><a href="#">Active</a></li>
+				<li><a href="#">Normal</a></li>
+   			</ul>
+  		</div>
+	</section>
+</body>
 
 
 
