@@ -12,12 +12,51 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended: true}));
 
 
-
 //ROUTES
 
 app.get("/search", (req, res) => {
 	res.render("main");
 })
+
+app.get("/search/test", async (req, res) => {
+	var result = [];
+	const fromYear = 1927;
+	const toYear = 1950;
+	const category = "CINEMATOGRAPHY";
+	
+	try {
+		var response = await axios("https://project-tareq.run-us-west2.goorm.io/json");
+		
+	} catch(err){
+		console.log(err);
+	}
+	
+	for(let movie of response.data){
+		
+		if(movie.year >= fromYear && movie.year <= toYear && category == movie.category){
+			
+			try {
+				let response1 = await axios(`https://api.themoviedb.org/3/search/movie?api_key=0a367317963013a9128446b956fcc5d8&query=${movie.entity}&year=${movie.year}`);
+				var id = response1.data.results[0].id;
+				let response2 = await axios(`https://api.themoviedb.org/3/movie/${id}?api_key=0a367317963013a9128446b956fcc5d8`);
+				let posterPath = "https://image.tmdb.org/t/p/w500";
+				posterPath += response2.data.poster_path;
+				response2.data.poster_path = posterPath;
+				result.push(response2.data);
+			} catch(err){
+				console.log(err);
+			}
+			
+		}
+	}
+	
+	if(result.length > 0){
+		res.send(result);
+	}else{
+		res.send("No results found, please try again");
+	}	
+	
+});
 
 // REST endpoint that delivers a collection resource in JSON
 app.get("/movies/categories/:categoryName/:year", async (req, res) => {
@@ -100,6 +139,8 @@ app.get("/movies/search", async (req, res) => {
 	}
 	
 });
+
+
 
 
 
