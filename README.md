@@ -31,9 +31,9 @@ This respective End point returns a collection result as well after the category
 
 
 ## Contributers:
-Abdul Tareq Khaliq
-Pavlo Pyshny 
-Evan Boswell
-Victor Liang
-Daniel Thompson
-Muhammad Musarrat
+  * Abdul Tareq Khaliq
+  * Pavlo Pyshny 
+  * Evan Boswell
+  * Victor Liang
+  * Daniel Thompson
+  * Muhammad Musarrat
