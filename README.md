@@ -7,6 +7,7 @@
   * [1. Collection Resource Endpoint](#1.-collection-resource-endpoint)
   * [2. Singleton Resource Endpoint](#2.-singelton-resource-endpoint)
   * [3. Category Resource Endpoint](#3.-category-resource-endpoint)
+4. [Contributers](#contributers)
 
 ## Description:
 Our website allows users to look up Oscar nominated movies as well as the winners. It also gives the users the ability to look up which categories the movies were nominated in and wether they won the prize or not. This also includes information about the nominated actors and the winners as well.
