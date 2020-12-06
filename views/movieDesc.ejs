@@ -1,0 +1,47 @@
+<%- include("partials/header") %>
+<%- include("partials/navBar") %>
+
+<body style='background-image: url(https://images.unsplash.com/photo-1594909122845-11baa439b7bf?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1050&q=80); background-repeat: no-repeat; background-attachment: fill; background-size: cover; background-position: center;'>
+	
+<div class = "container" class = "box">
+	<div class = "jumbotron">
+		<div class="row">
+    <div class="col">
+     <img class = "imgDesc" src = "<%= movie.poster_path %>">
+    </div>
+    <div class="col">
+      <div><strong>Title: </strong><%= movie.original_title %></div>
+	  <div><strong>Budget: </strong>$<%= movie.budget %></div>
+	  <div><strong>Revenue: </strong>$<%= movie.revenue %></div>
+	  <div><strong>Genres: </strong><%= movie.genres[0].name %></div>
+	  <div><strong>Runtime: </strong><%= movie.runtime  %> mins</div>
+	  <div><strong>Languages: </strong><% for(let lang of movie.spoken_languages) { %> 
+		  
+		  <%= lang.english_name %>
+		<% } %>
+	  </div>
+	
+	  <div><strong>Release date: </strong><%= movie.release_date %></div>
+	  <div><strong>Website: </strong><% if(movie.homepage.length < 1) { %>
+		  N/A
+	  <% } else { %> 
+		  <a href = "<%= movie.homepage %>" target = "_blank"><%= movie.homepage %></a> 
+	 </div>
+	  <%  }     %>
+	 <div><strong>Description: </strong><%= movie.overview %></div>
+		
+    </div>
+  </div>
+	
+	</div>
+	
+	
+	
+</div>
+	
+	
+	
+	
+</body>
+
+<%- include("partials/footer") %>

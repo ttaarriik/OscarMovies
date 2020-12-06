@@ -1,4 +1,113 @@
+@import url('https://fonts.googleapis.com/css?family=Notable&display=swap');
+
+html {
+	height: 100%;
+    width: 100%;
+}
+
 h1 {
-	text-align: center;
-	color: red;
+  position: relative; 
+  bottom: -8px;
+  font: 'Notable', sans-serif;
+  text-align: center;   
+  text-decoration: underline dotted black;
+  text-align: center;
+}
+
+.form {
+	display: contents;
+}
+
+.msg {
+	font-size: 35px;
+}
+
+h1.bonus {
+  text-shadow:
+     3px  3px 0 #000,
+    -1px -1px 0 #000,  
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000;
+}
+
+@supports (-webkit-text-stroke: 1px black) {
+  h1 {
+    -webkit-text-stroke: 0.5px black;
+    -webkit-text-fill-color: goldenrod;
+  }
+}
+
+
+select{
+	position: relative;
+	border-radius: 15px;
+	height: 25px;
+	bottom: -14px;
+	background-color: white; 
+	border: none;
+}
+
+.input2{
+	position: relative;
+	left: 9px;
+	padding: 0px 7px;
+	bottom: -12px;
+	height: 25px;
+	border-radius: 15px;
+    color: white; 
+	background-color: transparent; 
+	border: 2px solid white;
+    margin: 2px 2px;
+    opacity: 0.6;
+    transition: 0.3s;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer; 
+}
+.input2:hover {opacity: 1}
+} 
+
+.thumbnail img {
+	width: 100%;
+}
+
+.thumbnail {
+	padding: 0px;
+}
+
+.thumbnail .caption-full {
+	padding: 9px;
+}
+
+.row h1 {
+	text-align: center
+}
+
+.col-md-3 {
+	margin-top: 30px;
+}
+
+.btn-secondary {
+	margin-top: 10px;
+}
+
+h4 {
+	color: white;
+}
+
+.container {
+	display: flex;
+	align-items: center;
+  	justify-content: center;
+}
+
+.jumbotron {
+	width: 1000px;
+	height: 1000px;
+	margin-top: 40px;
+}
+
+.imgDesc {
+	width: 350px;
 }
