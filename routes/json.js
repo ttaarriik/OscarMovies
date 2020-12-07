@@ -10,7 +10,7 @@ var express		= 	require("express"),
 router.get("/movies/categories/:categoryName/:year", async (req, res) => {
 	var result = [];
 	
-	var response = await sendRequest("https://project-tareq.run-us-west2.goorm.io/json")
+	var response = await sendRequest("https://rocky-brushlands-75254.herokuapp.com/json")
 	
 	for(let movie of response.data){
 		
@@ -33,7 +33,7 @@ router.get("/movies/categories/:categoryName/:year", async (req, res) => {
 router.get("/movies/categories/:categoryName/:year/type/winner", async (req, res) => {
 	var result = [];
 	
-	var response = await sendRequest("https://project-tareq.run-us-west2.goorm.io/json")
+	var response = await sendRequest("https://rocky-brushlands-75254.herokuapp.com/json")
 	
 	for(let movie of response.data){
 		
@@ -58,7 +58,7 @@ router.get("/movies/categories/:categoryName/:year/type/winner", async (req, res
 router.get("/movies/search", async (req, res) => {
 	var result = [];
 	
-	var response = await sendRequest("https://project-tareq.run-us-west2.goorm.io/json")
+	var response = await sendRequest("https://rocky-brushlands-75254.herokuapp.com/json")
 	
 	for(let movie of response.data){
 		

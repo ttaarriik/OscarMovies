@@ -22,7 +22,7 @@ router.get("/search/main", async (req, res) => {
 	const toYear = req.query.toYear;
 	const category = req.query.category.toUpperCase();
 	
-	var response = await sendRequest("https://project-tareq.run-us-west2.goorm.io/json");
+	var response = await sendRequest("https://rocky-brushlands-75254.herokuapp.com/json");
 	
 	for(let movie of response.data){
 		
