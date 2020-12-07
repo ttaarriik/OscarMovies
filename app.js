@@ -29,7 +29,7 @@ app.get("/json", (req, res) => {
 
 
 //Connect to the server 
-app.listen("3000", () => {
+app.listen(process.env.PORT || 3000, () => {
 	console.log("Server is running");
 })
 
